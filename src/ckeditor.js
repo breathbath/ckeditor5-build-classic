@@ -11,6 +11,9 @@ import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapte
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
+import StrikeThrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
+import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
@@ -27,6 +30,17 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import Inspector from '@ckeditor/ckeditor5-inspector';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
+import Font from '@ckeditor/ckeditor5-font/src/font';
+
+function RemoveFormatLinks( editor ) {
+	// Extend the editor schema and mark the "linkHref" model attribute as formatting.
+	editor.model.schema.setAttributeProperties( 'linkHref', {
+		isFormatting: true
+	} );
+}
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -52,7 +66,15 @@ ClassicEditor.builtinPlugins = [
 	Paragraph,
 	PasteFromOffice,
 	Table,
-	TableToolbar
+	TableToolbar,
+	Alignment,
+	StrikeThrough,
+	Underline,
+	Code,
+	Inspector,
+	RemoveFormat,
+	RemoveFormatLinks,
+	Font,
 ];
 
 // Editor configuration.
@@ -65,8 +87,13 @@ ClassicEditor.defaultConfig = {
 			'italic',
 			'link',
 			'bulletedList',
+			'underline',
+			'strikethrough',
 			'numberedList',
 			'imageUpload',
+			'alignment:left',
+			'alignment:center',
+			'alignment:right',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
