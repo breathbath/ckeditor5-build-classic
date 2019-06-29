@@ -34,6 +34,7 @@ import Inspector from '@ckeditor/ckeditor5-inspector';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 import Font from '@ckeditor/ckeditor5-font/src/font';
+import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
 
 function RemoveFormatLinks( editor ) {
 	// Extend the editor schema and mark the "linkHref" model attribute as formatting.
@@ -75,6 +76,7 @@ ClassicEditor.builtinPlugins = [
 	RemoveFormat,
 	RemoveFormatLinks,
 	Font,
+	Autosave,
 ];
 
 // Editor configuration.
