@@ -35,7 +35,6 @@ import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat';
 import Font from '@ckeditor/ckeditor5-font/src/font';
 import Autosave from '@ckeditor/ckeditor5-autosave/src/autosave';
-import BalloonEditor from '@ckeditor/ckeditor5-editor-balloon/src/ballooneditor';
 
 function RemoveFormatLinks( editor ) {
 	// Extend the editor schema and mark the "linkHref" model attribute as formatting.
@@ -78,7 +77,6 @@ ClassicEditor.builtinPlugins = [
 	RemoveFormatLinks,
 	Font,
 	Autosave,
-	BalloonEditor,
 ];
 
 // Editor configuration.
